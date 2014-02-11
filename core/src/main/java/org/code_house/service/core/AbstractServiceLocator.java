@@ -3,7 +3,6 @@ package org.code_house.service.core;
 import org.code_house.service.api.ServiceLocator;
 import org.code_house.service.api.ServicePointer;
 
-import javax.management.MBeanServer;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
@@ -25,7 +24,9 @@ public class AbstractServiceLocator<C> implements ServiceLocator {
         for (C connection : connectionManager.getConnections()) {
             for (AdapterProvider<?, C> provider : adapterProviders) {
                 if (provider.isSupported(type)) {
-                    pointers.add((ServicePointer<T, P>) provider.createAdapter(connection));
+                    // let compiler catch P type parameter.
+                    Set<ServicePointer<T, P>> adapters = ((AdapterProvider<T, C>) provider).createAdapters(connection);
+                    pointers.addAll(adapters);
                 }
             }
         }

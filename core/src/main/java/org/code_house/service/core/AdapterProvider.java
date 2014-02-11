@@ -3,6 +3,7 @@ package org.code_house.service.core;
 import org.code_house.service.api.ServicePointer;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Generalization which allows to detach logic necessary for creating adapters.
@@ -13,6 +14,6 @@ public interface AdapterProvider<T, C> {
 
     boolean isSupported(Class<?> type);
 
-    <P extends Serializable> ServicePointer<T, P> createAdapter(C connection);
+    <P extends Serializable> Set<ServicePointer<T, P>> createAdapters(C connection);
 
 }
