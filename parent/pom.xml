@@ -23,7 +23,7 @@
         <osgi.export>org.code_house.service.${project.artifactId}</osgi.export>
 
         <guava.version>15.0</guava.version>
-        <jolokia.version>1.0.5</jolokia.version>
+        <jolokia.version>1.1.5</jolokia.version>
     </properties>
 
     <dependencyManagement>
