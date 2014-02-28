@@ -15,24 +15,29 @@
  */
 package org.code_house.service.api;
 
-import java.util.Set;
-
-import com.google.common.base.Optional;
-
 /**
- * Service locator used to lookup specified services.
+ * Wrapper for managed connections.
+ * 
+ * @author lukasz
+ *
+ * @param <C> Type of connection.
  */
-public interface ServiceLocator {
+public final class WrapperConnection<C> {
 
-    /**
-     * Lookup services based on the type.
-     *
-     * @param type Type of service.
-     * @param <T> Instance type.
-     * @return All services supporting
-     */
-    <T> Set<ServicePointer<T>> lookup(Class<T> type);
+    private final String connectionId;
+    private final C connection;
 
-    <T> Optional<ServicePointer<T>> lookup(ServicePointer<T> serviceId);
+    public WrapperConnection(String connectionId, C connection) {
+        this.connectionId = connectionId;
+        this.connection = connection;
+    }
+
+    public String getConnectionId() {
+        return connectionId;
+    }
+
+    public C getConnection() {
+        return connection;
+    }
 
 }

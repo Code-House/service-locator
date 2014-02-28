@@ -20,6 +20,10 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.code-house.service</groupId>
             <artifactId>api</artifactId>
         </dependency>
