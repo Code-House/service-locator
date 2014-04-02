@@ -6,6 +6,7 @@
         <groupId>org.code-house</groupId>
         <artifactId>parent</artifactId>
         <version>2-SNAPSHOT</version>
+        <relativePath />
     </parent>
 
     <groupId>org.code-house.service</groupId>
